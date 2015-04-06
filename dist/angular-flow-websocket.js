@@ -7,7 +7,7 @@
  * # FlowWebsocket
  * Factory in the ngFlowThingsApp.
  */
-angular.module('ngFlowThings')
+angular.module('ngFlowThings', ['ngWebSocket'])
     .factory('FlowWebsocket', function ($http, $websocket, $q, $interval) {
 
         var isDefined   = angular.isDefined,
