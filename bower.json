@@ -1,0 +1,25 @@
+{
+  "name": "angular-flow-websocket",
+  "version": "0.0.1",
+  "authors": [
+    "Aljosa Sljuka <aljosa88@gmail.com>"
+  ],
+  "keywords": ["angular", "flow", "flowthings", "websocket"],
+  "description": "FlowThings client for Angular",
+  "dependencies": {
+    "angular": "^1.3.0",
+    "angular-websocket": "~1.0.9"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/foo/bar.git"
+  },
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
