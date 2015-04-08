@@ -1,14 +1,7 @@
 'use strict';
 
-/**
- * @ngdoc service
- * @name ngFlowThingsApp.FlowWebsocket
- * @description
- * # FlowWebsocket
- * Factory in the ngFlowThingsApp.
- */
-angular.module('ngFlowThings', ['ngWebSocket'])
-    .factory('FlowWebsocket', function ($http, $websocket, $q, $interval) {
+angular.module('ngFlow.websocket', ['ngWebSocket'])
+    .factory('FlowWebsocket', ['$http', '$websocket', '$q', '$interval', function ($http, $websocket, $q, $interval) {
 
         var isDefined   = angular.isDefined,
             isUndefined = angular.isUndefined;
@@ -79,13 +72,10 @@ angular.module('ngFlowThings', ['ngWebSocket'])
         }
 
         function initSocket(sessionId) {
-            if (isUndefined(sessionId))
-                handleError(flowOptions.errors.NO_SESSION_ID);
-
             socket = $websocket('wss://ws.flowthings.io/session/' + sessionId + '/ws');
 
             socket.onOpen(function (e) {
-                connectionDeferred.resolve();
+                connectionDeferred.resolve(true);
                 console.log('opened', e);
             });
 
@@ -150,4 +140,4 @@ angular.module('ngFlowThings', ['ngWebSocket'])
             throw new Error(message);
         }
         
-    });
+    }]);
